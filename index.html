@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="Archonix Technologies is a custom software systems development company. We design and develop software systems for businesses.">
+<title>Archonix Technologies | Engineering What Comes Next</title>
+
+<style>
+:root {
+    --background: #07111f;
+    --surface: #0c192b;
+    --surface-light: #10233a;
+    --text: #f4f8ff;
+    --muted: #9aacc2;
+    --accent: #32d6c5;
+    --blue: #438cff;
+    --border: rgba(151,180,215,.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1160px, 90%);
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(7,17,31,.94);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.nav-button {
+    padding: 10px 17px;
+    border: 1px solid rgba(50,214,197,.5);
+    border-radius: 7px;
+    color: var(--accent);
+}
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 80% 40%, rgba(43,112,210,.18), transparent 43%),
+        radial-gradient(ellipse at 15% 80%, rgba(27,199,180,.09), transparent 40%);
+}
+
+.hero-content {
+    max-width: 790px;
+    padding: 100px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: clamp(43px, 7vw, 76px);
+    line-height: 1.09;
+    letter-spacing: -3px;
+    margin-bottom: 27px;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 650px;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.button {
+    display: inline-block;
+    padding: 13px 23px;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 13px;
+    transition: .2s;
+}
+
+.button-primary {
+    color: #04131a;
+    background: var(--accent);
+}
+
+.button-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(50,214,197,.2);
+}
+
+.button-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+section {
+    padding: 105px 0;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 48px;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    line-height: 1.2;
+    margin-bottom: 17px;
+}
+
+.section-heading p,
+.about-text {
+    color: var(--muted);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.about-panel {
+    background: linear-gradient(145deg, #10243a, #0b1728);
+    border: 1px solid var(--border);
+    padding: 35px;
+    border-radius: 13px;
+}
+
+.about-panel h3 {
+    color: var(--accent);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.about-panel p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.solutions {
+    background: #091626;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 29px;
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(50,214,197,.5);
+}
+
+.card-number {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 23px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.lifecycle {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.stage {
+    padding: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+
+.stage span {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.stage h3 {
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+.stage p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.principles {
+    background:
+        radial-gradient(ellipse at 80% 50%, rgba(42,112,210,.12), transparent 50%),
+        #091626;
+}
+
+.principle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.principle {
+    padding: 25px 0;
+    border-top: 1px solid var(--border);
+}
+
+.principle h3 {
+    margin-bottom: 9px;
+    color: var(--accent);
+}
+
+.principle p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.contact-box {
+    padding: 60px 35px;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: linear-gradient(130deg, #10243a, #0b192b);
+}
+
+.contact-box h2 {
+    font-size: clamp(30px, 4vw, 43px);
+    margin-bottom: 15px;
+}
+
+.contact-box p {
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 27px;
+}
+
+footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer strong {
+    color: var(--text);
+}
+
+@media(max-width: 800px) {
+    .nav-links {
+        gap: 13px;
+        font-size: 11px;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lifecycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 540px) {
+    nav {
+        min-height: 68px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links li:nth-child(2),
+    .nav-links li:nth-child(3) {
+        display: none;
+    }
+
+    .hero {
+        min-height: 570px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1.5px;
+    }
+
+    section {
+        padding: 75px 0;
+    }
+
+    .cards,
+    .lifecycle,
+    .principle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-box {
+        padding: 45px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a class="logo" href="#home">ARCHONIX<span>.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#approach">Approach</a></li>
+            </ul>
+
+            <a class="nav-button" href="#contact">Get in touch</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <div class="eyebrow">Custom Software Systems Development</div>
+
+            <h1>
+                Engineering the systems
+                <span>behind what comes next.</span>
+            </h1>
+
+            <p>
+                Archonix Technologies is a custom software systems
+                development company focused on designing and developing
+                software solutions that help businesses operate, innovate
+                and grow.
+            </p>
+
+            <div class="buttons">
+                <a class="button button-primary" href="#solutions">Explore our capabilities</a>
+                <a class="button button-secondary" href="#about">Discover Archonix</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div>
+                <div class="eyebrow">01 / About us</div>
+
+                <div class="section-heading">
+                    <h2>Building technology with purpose.</h2>
+                </div>
+
+                <p class="about-text">
+                    Archonix Technologies focuses on the development of
+                    custom software systems designed around real business
+                    requirements. We believe technology should do more
+                    than simply function. It should solve problems,
+                    connect processes and create opportunities for growth.
+                    <br><br>
+                    Our approach brings planning, architecture, design,
+                    development, security and ongoing improvement together
+                    into one structured development process.
+                </p>
+            </div>
+
+            <div class="about-panel">
+                <h3>Our direction</h3>
+                <p>
+                    To build a technology development company capable of
+                    creating reliable, secure and scalable systems for
+                    businesses across different industries.
+                    <br><br>
+                    Every system begins with understanding the problem
+                    before designing the right technical solution.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="solutions" id="solutions">
+    <div class="container">
+        <div class="section-heading">
+            <div class="eyebrow">02 / Capabilities</div>
+            <h2>Technology built around business needs.</h2>
+            <p>
+                A structured range of software development capabilities
+                for building connected and practical business systems.
+            </p>
+        </div>
+
+        <div class="cards">
+            <article class="card">
+                <div class="card-number">01 / SOFTWARE</div>
+                <h3>Custom Software Systems</h3>
+                <p>
+                    Software applications and business platforms designed
+                    around specific operational requirements.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-number">02 / WEB</div>
+                <h3>Web Applications</h3>
+                <p>
+                    Responsive web-based platforms and interfaces that
+                    make digital services accessible and usable.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-number">03 / BACKEND</div>
+                <h3>Backend & APIs</h3>
+                <p>
+                    Application logic, backend services and API
+                    integrations that connect software components.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-number">04 / DATA</div>
+                <h3>Database Systems</h3>
+                <p>
+                    Structured data management and database foundations
+                    for software applications.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-number">05 / SECURITY</div>
+                <h3>Security Engineering</h3>
+                <p>
+                    Security-conscious system architecture, access
+                    controls and software protection considerations.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-number">06 / OPERATIONS</div>
+                <h3>Deployment & Maintenance</h3>
+                <p>
+                    Testing, deployment planning, monitoring and continued
+                    system improvement.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="approach">
+    <div class="container">
+        <div class="section-heading">
+            <div class="eyebrow">03 / Development approach</div>
+            <h2>From an idea to a complete system.</h2>
+            <p>
+                A structured development lifecycle helps ensure that
+                important decisions are considered at every stage.
+            </p>
+        </div>
+
+        <div class="lifecycle">
+            <div class="stage">
+                <span>01</span>
+                <h3>Understand</h3>
+                <p>Identify needs, requirements and objectives.</p>
+            </div>
+
+            <div class="stage">
+                <span>02</span>
+                <h3>Architect</h3>
+                <p>Define system structure and technical foundations.</p>
+            </div>
+
+            <div class="stage">
+                <span>03</span>
+                <h3>Design</h3>
+                <p>Plan the user experience and system interfaces.</p>
+            </div>
+
+            <div class="stage">
+                <span>04</span>
+                <h3>Develop</h3>
+                <p>Build the software components and functionality.</p>
+            </div>
+
+            <div class="stage">
+                <span>05</span>
+                <h3>Secure</h3>
+                <p>Apply security controls and protection practices.</p>
+            </div>
+
+            <div class="stage">
+                <span>06</span>
+                <h3>Test</h3>
+                <p>Evaluate quality, functionality and reliability.</p>
+            </div>
+
+            <div class="stage">
+                <span>07</span>
+                <h3>Deploy</h3>
+                <p>Prepare and release the system into operation.</p>
+            </div>
+
+            <div class="stage">
+                <span>08</span>
+                <h3>Maintain & Scale</h3>
+                <p>Improve, support and expand the system over time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="principles">
+    <div class="container">
+        <div class="section-heading">
+            <div class="eyebrow">04 / Our principles</div>
+            <h2>Strong foundations. Better systems.</h2>
+        </div>
+
+        <div class="principle-grid">
+            <div class="principle">
+                <h3>Structured Engineering</h3>
+                <p>
+                    Clear architecture and organised development
+                    foundations before implementation.
+                </p>
+            </div>
+
+            <div class="principle">
+                <h3>Security by Design</h3>
+                <p>
+                    Considering security, access and protection throughout
+                    the software development process.
+                </p>
+            </div>
+
+            <div class="principle">
+                <h3>Built to Evolve</h3>
+                <p>
+                    Designing systems with maintainability and future
+                    growth in mind.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="contact-box">
+            <div class="eyebrow">05 / Connect with us</div>
+
+            <h2>Let's build what comes next.</h2>
+
+            <p>
+                Explore Archonix Technologies and follow our development
+                journey. For company information and project updates,
+                visit our GitHub organisation.
+            </p>
+
+            <a class="button button-primary"
+               href="https://github.com/Archonix-Technologies"
+               target="_blank"
+               rel="noopener noreferrer">
+                Visit Archonix on GitHub
+            </a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div><strong>ARCHONIX TECHNOLOGIES</strong></div>
+        <div>Custom Software Systems Development</div>
+        <div>&copy; <span id="year"></span> Archonix Technologies.</div>
+    </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
